@@ -15,7 +15,7 @@ function solveEquation(a, b, c) {
     }
     return arr;
 }
-solveEquation();
+
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
     if (isNaN(Number(percent))) {
@@ -34,5 +34,4 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
     let totalAmount = monthlyPayment * countMonths;
     return Number(totalAmount.toFixed(2))
 }
-let total = calculateTotalMortgage(10,0,50000,12)
-console.log(total);
+
