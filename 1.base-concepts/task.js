@@ -3,9 +3,7 @@
 function solveEquation(a, b, c) {
     let arr = [];
     let d = (Math.pow(b, 2) - 4 * a * c);
-    if (d < 0) {
-        arr.push();
-    } else if (d === 0) {
+    if (d === 0) {
         const x = -b / (2 * a);
         arr.push(x);
     } else {
@@ -28,10 +26,10 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
         return `Неправильный параметр функции, ${countMonths} должен быть числом`
     }
 
-    let percentPerMonth = percent / 100 / 12;
-    let loanAmount = amount - contribution;
-    let monthlyPayment = loanAmount * (percentPerMonth + (percentPerMonth / (((1 + percentPerMonth) ** countMonths) - 1)));
-    let totalAmount = monthlyPayment * countMonths;
+    const percentPerMonth = percent / 100 / 12;
+    const loanAmount = amount - contribution;
+    const monthlyPayment = loanAmount * (percentPerMonth + (percentPerMonth / (((1 + percentPerMonth) ** countMonths) - 1)));
+    const totalAmount = monthlyPayment * countMonths;
     return Number(totalAmount.toFixed(2))
 }
 
