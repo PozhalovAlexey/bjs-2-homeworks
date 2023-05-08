@@ -31,6 +31,3 @@ Student.prototype.exclude = function (reason) {
     delete this.subject;
     delete this.marks;
 }
-const student1 = new Student('Zhanna', 'female', 23)
-const student2 = new Student('Alex', 'male', 33)
-const student3 = new Student('Masha', 'female', 27)
