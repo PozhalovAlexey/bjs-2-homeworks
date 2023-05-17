@@ -11,18 +11,15 @@ class PrintEditionItem {
     this.state *= 1.5;
   }
 
-  set setState(state) {
-    if (state < 0) {
-      return (this.state = 0);
-    } else if (state > 100) {
-      return (this.state = 100);
-    } else {
-      return (this.state = state);
-    }
+  set state(num) {
+    if (num < 0) return (this._state = 0);
+     else if (num > 100) return (this._state = 100);
+     else return (this._state = num);
+
   }
 
-  get currentState() {
-    return this.state;
+  get state() {
+    return this._state;
   }
 }
 
@@ -70,7 +67,7 @@ class Library {
   }
 
   addBook(book) {
-    if (book.currentState > 30) {
+    if (book._state > 30) {
       this.books.push(book);
     }
   }
@@ -100,9 +97,19 @@ class Library {
 const library = new Library("Библиотека имени Белинского");
 
 const eugeneOnegin = new Book("А.С. Пушкин", "Eugene Onegin", 1833, 268);
-const richDad = new Book("Роберт Кийосаки", "Богатый папа, бедный папа", 1997, 336);
+const richDad = new Book(
+  "Роберт Кийосаки",
+  "Богатый папа, бедный папа",
+  1997,
+  336
+);
 const cleanCode = new Magazine("Роберт Мартин", "Чистый код", 2008, 464);
-const pridePrejudice = new Book("Джейн Остин", "Гордость и предубеждение", 1813, 432);
+const pridePrejudice = new Book(
+  "Джейн Остин",
+  "Гордость и предубеждение",
+  1813,
+  432
+);
 const damagedBook = new Book("Автор", "Название", 1919, 200);
 const machineTime = new NovelBook("Герберт Уэллс", "Машина времени", 1895, 138);
 
@@ -121,6 +128,6 @@ const bookToRead = library.giveBookByName("Машина времени");
 bookToRead.state = 20;
 bookToRead.fix();
 library.addBook(bookToRead);
-console.log(bookToRead)
-const foundBook = library.giveBookByName( "Чистый код");
-console.log(foundBook)
+console.log(bookToRead);
+const foundBook = library.giveBookByName("Чистый код");
+console.log(foundBook);
