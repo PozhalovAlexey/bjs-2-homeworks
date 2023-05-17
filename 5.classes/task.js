@@ -13,9 +13,8 @@ class PrintEditionItem {
 
   set state(num) {
     if (num < 0) return (this._state = 0);
-     else if (num > 100) return (this._state = 100);
-     else return (this._state = num);
-
+    else if (num > 100) return (this._state = 100);
+    else return (this._state = num);
   }
 
   get state() {
