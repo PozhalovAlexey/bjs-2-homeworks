@@ -130,3 +130,15 @@ library.addBook(bookToRead);
 console.log(bookToRead);
 const foundBook = library.giveBookByName("Чистый код");
 console.log(foundBook);
+
+
+///Задание 3.
+class Student{
+  constructor(name) {
+    this.name = name;
+    this.marks = {};
+  }
+
+  addMark()
+}
+
