@@ -8,7 +8,7 @@ class AlarmClock {
         if (!callback || !time) {
             throw new Error('Отсутствуют обязательные аргументы')
         }
-        if (this.alarmCollection.includes(time)) {
+        if (this.alarmCollection.some(alarm => alarm.time === time)) {
             console.warn('Уже присутствует звонок на это же время')
         }
         this.alarmCollection.push({
@@ -19,16 +19,14 @@ class AlarmClock {
     }
 
     removeClock(time) {
-        const filteredCalls = this.alarmCollection.filter(a => a.time !== time)
-        this.alarmCollection = filteredCalls;
-        return filteredCalls;
+        this.alarmCollection = this.alarmCollection.filter(a => a.time !== time)
     }
 
     getCurrentFormattedTime() {
-        const now = new Date();
-        const hh = now.getHours().toString().padStart(2, '')
-        const mm = now.getMinutes().toString().padStart(2, '')
-        return `${hh}:${mm}`;
+        return new Date().toLocaleTimeString('ru-Ru', {
+            hour: '2-digit',
+            minute: '2-digit'
+        })
     }
 
     start() {
@@ -56,7 +54,7 @@ class AlarmClock {
         this.intervalId = null;
     }
 
-    resetAllCalls = () => {
+    resetAllCalls() {
         this.alarmCollection.forEach(a => a.canCall = true)
     }
 
